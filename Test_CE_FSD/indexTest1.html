@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div >
+        <h1 style="text-align: center;">
+            Currency Converter App
+        </h1>
+        <input type="text" class="form-control" id="CURRENCY1" placeholder="CURRENCY1" required>
+        <input type="text" class="form-control" id="CURRENCY2" placeholder="CURRENCY2" required>
+        <button id="clickButton" class="btn-search">
+            Convert
+        </button>
+
+        <select name="currency" id="">
+            <option value="Dollar">Dollar</option>
+            <option value="Dirhams" selected>Dirhams</option>
+            <option value="Euros">Euros</option>
+        </select>
+
+        <select name="currency" id="">
+            <option value="Dollar">Dollar</option>
+            <option value="Dirhams" selected>Dirhams</option>
+            <option value="Euros">Euros</option>
+        </select>
+    </div>
+</body>
+
+<script>
+    document.getElementById('clickButton').onclick = function () {
+        let url = document.getElementById("Search").value
+        let b = fetch("https://api.exchangerate-api.com/v4/latest/"+url);
+        b.then((data) => {
+            console.log(data)
+            return data.json();
+        }).then((data) => {
+            console.log(data);
+            console.log(document.getElementById('CURRENCY2').innerText = `DOLLAR: ${data.rates.USD} \n DIRHAMS: ${data.rates.AED} \n EUROS: ${data.rates.EUR}`);
+            
+        }).catch(() => {
+            console.log("Error occurred while fetching data");
+        }).finally(() => {
+            console.log("Finally block executed");
+        })
+
+
+
+        async function userData() {
+        let url = 'https://api.exchangerate-api.com/v4/latest/';
+        let b = await fetch(url);
+        let data = await b.json();
+        console.log(data);
+    }    
+    }; 
+</script>
+</html>

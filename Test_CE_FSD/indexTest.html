@@ -1,0 +1,60 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <Form action="indexTest1.html" method="get" name="myForm" onsubmit="validate()">
+        <Input type="text" id="uname" name="uname"/>
+        <div id="username"  style="background-color: red;">
+
+        </div>
+        <div id="password" style="background-color: red;">
+        
+        </div>
+        <Input type="password" name="upass" id="upass" />
+        <Input type="submit" value="Login"/>
+        <Input type="reset" value="reset"/>
+    </Form>
+    
+
+    <script>
+        function validate() {
+            let username = document.myForm.uname.value;
+            let password = document.myForm.upass.value;
+            if (username.trim() == "") {
+                alert("username didnt enter value");
+                return false;
+            }
+            else if (password.trim() == "") {
+                alert("username didnt enter password");
+                return false;
+              
+            }
+
+            return verification(username, password);
+        
+        }
+
+        function verification(username, password) {
+             let name = "xyz";
+             let word = "xyz";
+             if(username == name && password == word) {
+                alert("user correct");
+           
+             }
+             else {
+                alert("Username or password is incorrect")
+                return false;
+             }
+        }
+    </script>
+</body>
+</html>
+
+<!-- 
+
+
+let username = document.myform.uname.value;
+let password = document.myform.upass.value; -->
